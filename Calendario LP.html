@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Calendario</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  
+    <script language="javascript">
+
+var umaData, ano, mes, dia, corfnt, corfdo;
+
+ano = parseInt(window.prompt("Informe um ano"));
+mes = parseInt(window.prompt("Agora, informe um mês"));
+
+umaData = new Date();
+umaData.setDate(1);
+umaData.setMonth(mes-1);
+umaData.setFullYear(ano);
+
+document.write("<h1>" + umaData + "</h1>");
+document.write("<br>");
+
+document.write("<table border=5>");
+document.write("<hr>");
+
+for(dia=2; dia<=30; ++dia)
+{
+   if (umaData.getDay()==0)
+     {
+      corfdo="black";
+      corfnt="red";
+     }
+   else
+     {
+      corfdo="white";
+      corfnt="black";
+     }
+   document.write("<tr bgcolor=" + corfdo + ">");
+   document.write("<td width=200 align=center>");
+   document.write("<font face=arial size=8 color=" + corfnt + ">" + 
+                  umaData.getDate() + "/" + 
+                  (umaData.getMonth()+1) + "/" + 
+                  umaData.getFullYear() + "</font>");
+   document.write("</td>");
+
+   document.write("<td width=100 align=center>");
+   document.write("<font face=arial size=8 color=" + corfnt + ">");
+   switch (umaData.getDay())
+   {
+     case 0: document.write("Dom"); break;
+     case 1: document.write("Seg"); break;
+     case 2: document.write("Ter"); break;
+     case 3: document.write("Qua"); break;
+     case 4: document.write("Qui"); break;
+     case 5: document.write("Sex"); break;
+     case 6: document.write("Sab"); break;
+   }
+   document.write("</font>");
+   document.write("</td>");
+   document.write("</tr>");
+   document.write("</hr>");
+
+   umaData.setDate(d);
+}
+
+document.write("</table>");
+</script>
+</body>
+
+</html>
